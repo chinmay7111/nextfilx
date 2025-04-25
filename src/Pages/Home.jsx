@@ -14,17 +14,8 @@ const Home = ({addFavorite}) => {
     const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // Fetching movie data
-    axios
-      .get('/Films.json') 
-      .then(response => {
-        setMovies(response.data.movies);
-        console.log(response.data); 
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+  setMovies(movieData.movies); // or use axios from /Films.json
+}, []);
 
     // const movies =[{ id:1 ,title:"Avatar",release_date:"18 Dec 2009" },
     //                 { id:2 ,title:"300",release_date:"18 Dec 2007" },
@@ -62,8 +53,10 @@ const Home = ({addFavorite}) => {
 
         <div className="flex gap-4 justify-center flex-wrap">
             {
-                movies.map((item)=> item.Title.toLowerCase().startsWith(searchMovie) && <MovieCard movie={item} 
-                addFavorite={addFavorite}  key={item.Released}/>)
+                movies.filter(item => item.Title.toLowerCase().startsWith(searchMovie.toLowerCase()))
+  .map(item => (
+    <MovieCard movie={item} addFavorite={addFavorite} key={item.Released} />
+  ))
             }
         </div>
       </div>
