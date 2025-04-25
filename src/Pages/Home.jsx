@@ -16,7 +16,7 @@ const Home = ({addFavorite}) => {
   useEffect(() => {
     // Fetching movie data
     axios
-      .get('http://localhost:3000/movies') 
+      .get('/Films.json') 
       .then(response => {
         setMovies(response.data);
         console.log(response.data); 
