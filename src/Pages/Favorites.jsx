@@ -20,7 +20,7 @@ const Favorites = () => {
   };
 
   return (
-    <div className="favorites-container">
+    <div className="favorites-container h-[100dvh]">
       <div className="flex flex-wrap justify-center gap-4">
         {favorites.map((movie) => (
           <div key={movie.imdbID} className="relative">
