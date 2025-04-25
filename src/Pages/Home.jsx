@@ -18,7 +18,7 @@ const Home = ({addFavorite}) => {
     axios
       .get('/Films.json') 
       .then(response => {
-        setMovies(response.data);
+        setMovies(response.data.movies);
         console.log(response.data); 
       })
       .catch(error => {
