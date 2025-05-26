@@ -36,7 +36,7 @@ const Home = ({addFavorite}) => {
     }
   return (
     <>
-      <div className="text-center pt-2">
+      <div className="h-screen text-center pt-2">
 
         <form onSubmit={handelSearch}>
 
